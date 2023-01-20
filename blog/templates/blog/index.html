@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}Home{% endblock page_title %}
+{% block css_file %}
+<link rel="stylesheet" href="{% static 'blog/post.css' %}">
+<link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock css_file %}
+
+{% block content %}
+<section id='welcome'>
+    <header>
+        <img src="{% static 'blog/images/jw.png' %}" alt="rudy-img">
+        <h2>RUDY's BLOG</h2>
+    </header>
+    <p>Hi, I am Rudy and I am Sexy and Kind</p>
+</section>
+<section id='latest-posts'>
+    <h2>My Latest Thoughts</h2>
+    <ul>
+        {% for post in posts %}
+            {% include "shared/post.html" %}
+        {% endfor %}
+
+    </ul>
+</section>
+<section id='about'>
+    <h2>What I Do</h2>
+    <p>I'm an award-winning content writer who has eight years of experience creating compelling articles and short stories. I'm continuously searching for new topics and stories to capture the attention of new readers. With my knowledge and experience, I can help you fulfill your content creation goals.</p>
+</section>
+{% endblock content %}
